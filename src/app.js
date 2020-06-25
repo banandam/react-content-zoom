@@ -36,7 +36,7 @@ export default class ContentZoom extends React.Component {
     let zoomPercent = this.props.zoomPercent ? this.props.zoomPercent + '%' : '250%';
     let largeImageUrl = this.props.largeImageUrl;
     el.addEventListener('mouseenter', function (e) {
-      this.style.backgroundImage = 'url(' + largeImageUrl + ')';
+      this.style.backgroundImage = 'url("' + largeImageUrl + '")';
       this.style.backgroundSize = zoomPercent;
     }, false);
   }
@@ -47,7 +47,7 @@ export default class ContentZoom extends React.Component {
     el.addEventListener('mouseleave', function (e) {
       this.style.backgroundSize = 'cover';
       this.style.backgroundPosition = 'center';
-      this.style.backgroundImage = 'url(' + imageUrl + ')';
+      this.style.backgroundImage = 'url("' + imageUrl + '")';
     }, false);
   }
 
@@ -75,7 +75,7 @@ export default class ContentZoom extends React.Component {
   renderZoomedImage(el) {
     if (!el) return;
     // Set the source of the zoomed image.
-    el.style.backgroundImage = 'url(' + this.props.imageUrl + ')';
+    el.style.backgroundImage = 'url("' + this.props.imageUrl + '")';
   }
 
   render() {
